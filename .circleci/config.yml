@@ -38,12 +38,12 @@ workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
-    jobs:
-      - welcome/run
-      - say-hello
-      - say-world:
-          requires:
-            - say-hello
-
+    - say-hello
+    - say-world:
+        requires:
+          - say-hello
+  print-variable:
+    - print-variable/run
+    - print-variable
     
  
