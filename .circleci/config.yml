@@ -16,6 +16,11 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo world
+  print_variable:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo $MY_ENV_VAR
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -26,3 +31,8 @@ workflows:
       - print_world:
           requires:
             - print_hello
+  print-variable:
+    # Run the print_variable/run job in its own container
+    jobs:
+      - print-variable/run
+      - print_variable
