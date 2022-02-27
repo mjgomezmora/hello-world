@@ -45,5 +45,8 @@ workflows:
           requires:
             - say-hello
   print-variable:
-    print-variable
+    jobs:
+      - print-variable/run
+      - print-variable
+    
  
