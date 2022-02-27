@@ -34,15 +34,10 @@ jobs:
       - run: echo  $MY_ENV_VAR
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  # Name the workflow "welcome"
-  welcome:
     # Run the welcome/run job in its own container
-    - say-hello
-    - say-world:
-        requires:
-          - say-hello
-  print-variable:
-    - print-variable
-    
- 
+    jobs:
+      - welcome/run
+      - print_hello
+      - print_world:
+          requires:
+            - print_hello
