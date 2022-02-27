@@ -35,12 +35,15 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-    welcome:
-      jobs:
-        welcome/run
-        say-hello
-        say-world: 
-          requires: [say-hello]
-    print-variable:
-          print_variable
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - welcome/run
+      - say-hello
+      - say-world:
+          requires:
+            - say-hello
+  print-variable:
+    print_variable
  
