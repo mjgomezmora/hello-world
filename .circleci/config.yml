@@ -45,5 +45,5 @@ workflows:
           requires:
             - say-hello
   print-variable:
-    print_variable
+    print-variable
  
