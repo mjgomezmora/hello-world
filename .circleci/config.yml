@@ -37,8 +37,9 @@ jobs:
 workflows:
     welcome:
       jobs:
+        welcome/run
         say-hello
-      - say-world: 
+        say-world: 
           requires: [say-hello]
     print-variable:
           print_variable
