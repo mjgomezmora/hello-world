@@ -34,5 +34,5 @@ workflows:
   print-variable:
     # Run the print_variable/run job in its own container
     jobs:
-      - print-variable/run
+      - print_variable/run
       - print_variable
