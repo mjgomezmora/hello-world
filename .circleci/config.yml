@@ -20,9 +20,13 @@ jobs:
       - run: echo world
   print_variable:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/base:2020.01
     steps:
-      - run: echo $MY_ENV_VAR
+      - checkout
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $MY_ENV_VAR      
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -36,5 +40,4 @@ workflows:
   print_variable:
     # Run the print_variable/run job in its own container
     jobs:
-      - print_variable/run
       - print_variable
