@@ -46,7 +46,7 @@ workflows:
       - print_world:
           requires:
             - print_hello
-      - print_output_file
+      - print_output_file:
           requires:
             - print_world
   print_variable:
