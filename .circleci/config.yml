@@ -46,6 +46,7 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - persist_to_workspace
   print_variable:
     # Run the print_variable/run job in its own container
     jobs:
