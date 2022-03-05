@@ -47,6 +47,8 @@ workflows:
           requires:
             - print_hello
       - print_output_file
+          requires:
+            - print_world
   print_variable:
     # Run the print_variable/run job in its own container
     jobs:
