@@ -16,16 +16,16 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "test storing in a file" > output.txt
-  persist_to_workspace:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - root: ./output.txt
-      - paths: /tmp/workspace
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - output.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - attach_workspace:
+          at: ~/
       - run: cat output.txt
   print_variable:
     docker:
