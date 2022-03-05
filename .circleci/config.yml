@@ -17,9 +17,15 @@ jobs:
     steps:
       - run: echo "test storing in a file" > output.txt
   persist_to_workspace:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
       - root: ./output.txt
       - paths: /tmp/workspace
   print_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
       - run: cat output.txt
   print_variable:
     docker:
