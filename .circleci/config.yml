@@ -15,7 +15,12 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo world
+      - run: echo "test storing in a file" > output.txt
+  persist_to_workspace:
+      - root: ./output.txt
+      - paths: /tmp/workspace
+  print_output_file:
+      - run: cat output.txt
   print_variable:
     docker:
       - image: cimg/base:2020.01
