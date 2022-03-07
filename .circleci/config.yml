@@ -46,7 +46,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
-my_job:
+  my_job:
     docker:
       - image: circleci/node:13.8.0
     steps:
